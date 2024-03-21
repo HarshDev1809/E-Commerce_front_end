@@ -1,0 +1,130 @@
+.nav-bar {
+    border: 2px solid black;
+    display: flex;
+    height: 17vh;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.nav-bar .nav-bar-upper{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    border: 1px solid red;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 10vh;
+}
+
+.nav-bar .drop-down-section{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: center;
+    align-items: start;
+    height: 7vh;
+}
+
+.nav-bar .nav-bar-upper .button-section{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 10%;
+    height: 60%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-bar .drop-down-section .section-div{
+    border: 1px solid brown;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* --------------------------------------------------------- */
+
+/* .nav-bar .jc-c{
+    justify-content: center;
+}
+
+.nav-bar .ai-c{
+    align-items: center;
+}
+
+.nav-bar .flex{
+    display: flex;
+}
+
+.nav-bar .logo{
+    height: 90%;
+    width: auto;
+}
+
+.nav-bar .logo img{
+    height: 100%;
+    width: auto;
+}
+
+.nav-bar .flex-grow-3{
+    flex-grow: 3;
+}
+
+.nav-bar .flex-grow-1{
+    flex-grow: 1;
+}
+
+.nav-bar .section-div{
+    height: 90%;
+
+    flex-grow: 1;
+    border: 1px solid red;
+    width: 10%;
+}
+
+.nav-bar .search-box{
+    border: 1px solid black;
+    padding: 0;
+    height: 40%;
+}
+
+.nav-bar .search-box form{
+    height: 100%;
+}
+
+.nav-bar .search-box input{
+    height: 85%;
+    width: 70%;
+}
+
+.nav-bar .search-box button{
+    height: 100%;
+}
+
+.nav-bar .drop-down-section{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    border : 1px solid green;
+    justify-content: space-around;
+    align-items: center;
+} */
+
+/* .nav-bar .drop-down-section div {
+    height: 100%;
+    width: 30%;
+    border: 1px solid brown
+} */
+
+/* .nav-bar .button-section{
+    display: flex;
+    flex-direction: row;
+} */
+
+/* ------------------------------------------------ */
+
