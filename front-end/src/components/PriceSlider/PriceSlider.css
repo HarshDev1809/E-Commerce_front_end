@@ -1,0 +1,7 @@
+.price-slider .slider{
+    position: absolute;
+}
+
+.price-slider #max-slider{
+    color: white
+}

@@ -1,14 +1,14 @@
 import Carousel from 'react-bootstrap/Carousel';
+import "./ManCarousel.css"
 
 function ManCarousel() {
   return (
     <Carousel data-bs-theme="dark">
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="https://m.media-amazon.com/images/I/813UIVxLD3L._SY741_.jpg"
-          alt="First slide"
-          style={{height:"40vh",width:"auto",objectFit:"none"}}
+          className="d-block w-100 carousel-img"
+          src="/bracelet.jpg"
+          alt="Womens Bracelets"
         />
         <Carousel.Caption>
           <h5>First slide label</h5>
@@ -17,8 +17,8 @@ function ManCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=eee"
+          className="d-block w-100 carousel-img"
+          src="/earrings.jpg"
           alt="Second slide"
         />
         <Carousel.Caption>
@@ -28,8 +28,8 @@ function ManCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=e5e5e5"
+          className="d-block w-100 carousel-img"
+          src="/rings.jpg"
           alt="Third slide"
         />
         <Carousel.Caption>

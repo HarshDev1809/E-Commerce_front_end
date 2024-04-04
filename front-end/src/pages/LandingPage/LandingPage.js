@@ -4,6 +4,7 @@ import NavBar from "../../components/NavBar/NavBar";
 function LandingPage(){
     return <div>
         <NavBar />
+        <ManCarousel />
     </div>
 }
 

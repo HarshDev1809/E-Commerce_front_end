@@ -1,0 +1,16 @@
+.products-area{
+    border: 1px solid black;
+    height: 80vh;
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.products-area .show-products{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}

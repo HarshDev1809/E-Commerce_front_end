@@ -1,0 +1,18 @@
+.product-display{
+    border: 1px solid green;
+    height: 40vh;
+    width: 20vw;
+}
+
+.product-display .product-img{
+    height: 70%;
+    width: 90%;
+    border: 1px solid yellow;
+}
+
+.product-display img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border: 1px solid red;
+}
