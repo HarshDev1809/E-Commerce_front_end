@@ -1,6 +1,6 @@
 .product-display{
     border: 1px solid green;
-    height: 40vh;
+    height: 60vh;
     width: 20vw;
 }
 
@@ -15,4 +15,10 @@
     width: 100%;
     object-fit: contain;
     border: 1px solid red;
+}
+
+.product-display .button-div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
