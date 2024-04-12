@@ -8,6 +8,5 @@ export const signInApi = async (userDetaiils)=>{
 export const verifyTokenApi = async ()=>{
     const token = localStorage.getItem("token");
         const {data} = await axios.post("http://localhost:8000/api/auth/verify",{"token" : token});
-        console.log(data);
         return data;
 }

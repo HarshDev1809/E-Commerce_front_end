@@ -7,12 +7,15 @@ import KidDropMenu from "../KidDropMenu/KidDropMenu";
 import PersonIcon from "@mui/icons-material/Person";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
   const [searchValue, setSearchValue] = useState();
   const [isDropdownVisibleMan, setIsDropdownVisibleMan] = useState(false);
   const [isDropdownVisibleWoman, setIsDropdownVisibleWoman] = useState(false);
   const [isDropdownVisibleKid, setIsDropdownVisibleKid] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleMouseEnterMan = () => {
     setIsDropdownVisibleMan(true);
@@ -47,6 +50,10 @@ function NavBar() {
     console.log(searchValue);
   };
 
+  const goToCart = ()=>{{
+    navigate("/cart")
+  }}
+
   return (
     <div className="nav-bar">
       <div className="nav-bar-upper">
@@ -75,7 +82,11 @@ function NavBar() {
             <FavoriteBorderIcon />
           </div>
           <div className="bag">
-            <ShoppingCartIcon />
+            <button type="button" onClick={goToCart}>
+            <span class="material-symbols-outlined">
+shopping_cart
+</span>
+            </button>
           </div>
         </div>
       </div>

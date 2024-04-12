@@ -29,7 +29,6 @@ export const addToCartApi = async (id) => {
       },
     }
   );
-
   return response;
 };
 

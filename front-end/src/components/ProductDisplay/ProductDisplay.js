@@ -20,7 +20,8 @@ function ProductDisplay(props) {
   const navigate = useNavigate();
 
   const addToCart = async ()=>{
-    if(props.isSignin){
+    console.log(props)
+    if(props.isSignIn){
       const response = await addToCartApi(productDetails);
       setQuantity(quantity + 1);
       props.inCart.push(productUid);

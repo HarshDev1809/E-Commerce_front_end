@@ -26,7 +26,6 @@ function Product(){
     return <div className="product">
         <NavBar />
         <div className="page-section">
-            <SideBar />
             {isLoading ? <Loader/> : <ProductDetails product = {product}/>}
         </div>
     </div>

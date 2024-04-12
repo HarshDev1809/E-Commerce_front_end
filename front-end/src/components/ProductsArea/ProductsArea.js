@@ -65,10 +65,17 @@ function ProductsArea() {
     );
   };
 
+  const updateIsSignIn = async() =>{
+    const response = await verifyTokenApi();
+    setIsSignIn(response);
+  }
+
   useEffect(() => {
     setIsloading(true);
     fetchProducts();
-    setIsSignIn(verifyTokenApi());
+    console.log(verifyTokenApi())
+    updateIsSignIn();
+    
     return () => {};
   }, []);
 
