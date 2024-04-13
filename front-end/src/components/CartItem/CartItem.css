@@ -1,0 +1,16 @@
+.cart-item{
+    height: 10%;
+    width: 80%;
+    border: 1px solid brown;
+}
+
+.cart-item .img-div{
+    height: 90%;
+    width: 20%;
+}
+
+.cart-item .img-div img{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}

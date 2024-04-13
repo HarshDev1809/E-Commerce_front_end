@@ -4,15 +4,20 @@ import { getCartItemsApi, getProductsApi } from "../../api/products";
 import Loader from "../Loader/Loader";
 import ProductDisplay from "../ProductDisplay/ProductDisplay";
 import { verifyTokenApi } from "../../api/auth";
+import { Tune } from "@mui/icons-material";
+import CartFooter from "../CartFooter/CartFooter";
 
 function ProductsArea() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [isLoading, setIsloading] = useState(true);
-  const [isSignIn, setIsSignIn] = useState();
+  const [isSignIn, setIsSignIn] = useState(false);
+  const [isCart, setIsCart] = useState(false);
+  let isSignIn2 = false;
 
   const fetchProducts = async () => {
     try {
+      console.log("inside")
       await getProducts();
       await getCartItems();
       setIsloading(false);
@@ -27,14 +32,18 @@ function ProductsArea() {
   };
 
   const getCartItems = async () => {
-    if(isSignIn){
+    console.log(isSignIn)
+    if(isSignIn2){
+      console.log("inside if")
       const { data } = await getCartItemsApi();
+      if(data.length){
+        setIsCart(true);
+      }
       setCartItems(data);
     }else{
       setCartItems([]);
     }
   };
-
 
   const showProducts = (data) => {
     return (
@@ -57,9 +66,11 @@ function ProductsArea() {
             //   // }
             //   return product.uId === item;
             // })} />
+            // console.log(cartItems)
             return <ProductDisplay product = {product} inCart = {cartItems} isSignIn = {isSignIn}/>
           }
         )}
+        {isCart  && <CartFooter />}
 
       </div>
     );
@@ -67,15 +78,25 @@ function ProductsArea() {
 
   const updateIsSignIn = async() =>{
     const response = await verifyTokenApi();
-    setIsSignIn(response);
+
+    if(response){
+      setIsSignIn(true);
+      isSignIn2 = true;
+      console.log(isSignIn)
+    }
+    console.log(response)
+    console.log(isSignIn)
+  }
+
+  const myFunction = async()=>{
+    setIsloading(true);
+    await updateIsSignIn();
+    console.log(isSignIn);
+    await fetchProducts();
   }
 
   useEffect(() => {
-    setIsloading(true);
-    fetchProducts();
-    console.log(verifyTokenApi())
-    updateIsSignIn();
-    
+    myFunction();
     return () => {};
   }, []);
 

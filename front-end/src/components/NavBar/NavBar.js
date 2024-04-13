@@ -54,6 +54,10 @@ function NavBar() {
     navigate("/cart")
   }}
 
+  const goToProducts = ()=>{
+    navigate("/products");
+  }
+
   return (
     <div className="nav-bar">
       <div className="nav-bar-upper">
@@ -114,6 +118,9 @@ shopping_cart
         >
           <p>Kid's Jewellery</p>
           {isDropdownVisibleKid && <KidDropMenu />}
+        </div>
+        <div className="section-div" onClick={goToProducts}>
+          <p>All Products</p>
         </div>
       </div>
       <div className="drop-down-menu">

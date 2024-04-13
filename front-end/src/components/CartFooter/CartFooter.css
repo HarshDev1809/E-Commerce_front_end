@@ -1,0 +1,11 @@
+.cart-footer{
+    height: 8%;
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    bottom: 10px;
+}

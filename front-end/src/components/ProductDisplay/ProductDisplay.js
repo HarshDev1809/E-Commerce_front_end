@@ -1,51 +1,61 @@
 import { useEffect, useState } from "react";
 import "./ProductDisplay.css";
-import { addToCartApi, removeFromCartApi } from "../../api/products";
-import Alert from "../SignInAlert/SignInAlert";
+import { addToCartApi, getCartItemsApi, removeFromCartApi } from "../../api/products";
 import { useNavigate } from "react-router-dom";
 
 
 function ProductDisplay(props) {
   // console.log(props.product)
   // console.log(props.inCart)
+  // console.log(props)
 
-  const [inCart,setInCart] = useState(props.inCart);
+  const [inCart,setInCart] = useState([]);
   const [show, setShow] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const productUid = props.product.uId;
-  const productDetails = {
-    id : productUid
-  }
+  const [productDetails, setProductDetails] = useState();
 
   const navigate = useNavigate();
 
   const addToCart = async ()=>{
-    console.log(props)
+    console.log(props.isSignIn)
     if(props.isSignIn){
-      const response = await addToCartApi(productDetails);
-      setQuantity(quantity + 1);
-      props.inCart.push(productUid);
+      const {data} = await addToCartApi({
+        id : productUid,
+        count : 1
+      });
+      console.log(data)
+      for(let i = 0; i<data.length; i++){
+        if(data[i].uId === productUid){
+          console.log("inside")
+          setQuantity(data[i].quantity);
+          break
+        }
+      }
+      // setQuantity(quantity + 1);
+      // console.log(quantity)
       setShow(true)
-      console.log(response);
+      console.log(data);
+      console.log(props);
     }else{
       alert("sign in");
     }
   }
 
   const checkQuantity = ()=>{
-    let x = 0;
-    for(let i = 0; i<props.inCart.length; i++){
-      if(props.inCart[i] === productUid){
-        x++;
-      }
-    }
-    setQuantity(x);
-    console.log(x);
+    // for(let i = 0 ; i<props.inCart.length; i++){
+    //   if(props)
+    // }
+    console.log("1");
   }
 
   const isInCart = ()=>{
-    for(let i = 0; i<props.inCart.length; i++){
-      if(props.inCart[i] === productUid){
+    // console.log(inCart)
+    for(let i = 0; i < props.inCart.length; i++){
+      if(props.inCart[i].uId === productUid){
+        console.log("in if")
+        console.log(props.inCart[i].quantity)
+        setQuantity(props.inCart[i].quantity);
         return true;
       }
     }
@@ -64,9 +74,52 @@ function ProductDisplay(props) {
     navigate(`/products/${productUid}`);
   }
 
-  useEffect(()=>{
+  const getCartItems = async () => {
+    if(props.isSignIn){
+      const { data } = await getCartItemsApi();
+      setInCart(data)
+    }else{
+      setInCart([]);
+    }
+  };
+
+  // const fetchCartItems = async()=>{
+
+  // }
+
+  const fetchProducts = async () => {
+    try {
+      // await getProducts();
+      await getCartItems();
+      // setIsloading(false);
+      // setTimeout(()=>{
+        setShow(isInCart())
+        // console.log(show)
+      // },3000);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const myFunction = async()=>{
+    const response = await getCartItems()
+    console.log(response);
+    console.log(isInCart())
     setShow(isInCart());
-    checkQuantity();
+    console.log(isInCart())
+  }
+
+  useEffect(()=>{
+    console.log(props)
+    // getCartItems()
+    // setShow(isInCart());
+    fetchProducts()
+    // myFunction();
+    // fetchCartItems();
+    // checkQuantity();
+    // setQuantity(productDetails.quantity)
+    // console.log(props)
+    return ()=> {}
   },[])
 
   return (

@@ -21,7 +21,7 @@ export const getCartItemsApi = async () => {
 export const addToCartApi = async (id) => {
   const token = localStorage.getItem("token");
   const response = await axios.put(
-    "http://localhost:8000/api/products/cart/add",
+    "http://localhost:8000/api/products/cart/update",
     id,
     {
       headers: {
